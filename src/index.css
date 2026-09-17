@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Telegram injects --tg-theme-* variables automatically once WebApp.ready()
+  runs inside the Telegram client. The fallbacks below make the app look
+  correct when previewed in a normal browser (dev mode) too.
+*/
+:root {
+  --tg-theme-bg-color: #ffffff;
+  --tg-theme-text-color: #1c1c1e;
+  --tg-theme-hint-color: #8e8e93;
+  --tg-theme-link-color: #2481cc;
+  --tg-theme-button-color: #2481cc;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-secondary-bg-color: #f4f4f5;
+  --tg-theme-header-bg-color: #ffffff;
+  --tg-theme-section-bg-color: #ffffff;
+  --tg-theme-subtitle-text-color: #8e8e93;
+  --tg-theme-destructive-text-color: #ff3b30;
+}
+
+/* Telegram's dark theme sets these same variables to dark values automatically;
+   this media query only covers the plain-browser preview fallback. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tg-theme-bg-color: #17212b;
+    --tg-theme-text-color: #f5f5f5;
+    --tg-theme-hint-color: #708499;
+    --tg-theme-link-color: #6ab7ff;
+    --tg-theme-button-color: #5288c1;
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-secondary-bg-color: #232e3c;
+    --tg-theme-header-bg-color: #17212b;
+    --tg-theme-section-bg-color: #17212b;
+    --tg-theme-subtitle-text-color: #708499;
+    --tg-theme-destructive-text-color: #ec3942;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+/* Hide scrollbars on horizontal chip/category rails, keep them scrollable */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
